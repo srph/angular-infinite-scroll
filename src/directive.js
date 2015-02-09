@@ -49,7 +49,8 @@
         var scroll = $container.scrollTop(); // The amount of scrolling
         var scrollHeight = $container.prop('scrollHeight'); // Container height + amount of scrolling
 
-        if ( (height - scroll) + threshold > scrollHeight ) {
+        // scrollHeight - height = scroll offset
+        if ( scroll + threshold > scrollHeight - height ) {
           promise = $timeout(function() {
             // We use $q.when to set the `promise` flag (if the callback is still running)
             // to null (set the flag as done / no execution is running) so async
