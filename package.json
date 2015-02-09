@@ -5,8 +5,8 @@
   "main": "karma.conf.js",
   "scripts": {
     "test": "./node_modules/karma/bin/karma start",
-    "build": "ng-annotate ./src/directive.js -a -o ./dist/angular-srph-infinite-scroll.js --sourcemap --single_quotes",
-    "uglify": "uglifyjs ./dist/angular-srph-infinite-scroll.js --mangle --compress -o ./dist/angular-srph-infinite-scroll.min.js",
+    "build": "ng-annotate ./src/directive.js -a -o ./dist/angular-srph-infinite-scroll.js --single_quotes",
+    "uglify": "uglifyjs ./dist/angular-srph-infinite-scroll.js -m -c -o ./dist/angular-srph-infinite-scroll.min.js",
     "start": "npm run build && npm run uglify"
   },
   "repository": {
