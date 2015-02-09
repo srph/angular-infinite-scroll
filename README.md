@@ -37,7 +37,10 @@ Current version is ```v0.0.1```.
 
 ## Getting Started
 
-Should work with AngularJS ```>=v1.2.0```. While planned in the future to be removed, this library requires jQuery (at least) ```>=v.1.7``` to work.
+**Requirements**
+
+- AngularJS ```>=v1.2.0``` (Should work with)
+- jQuery (at least) ```>=v.1.7``` (Planned in the future to be removed)
 
 ### Installation
 
@@ -99,7 +102,7 @@ If you plan to contribute (put some fixes, add a feature, put some tests), then 
 3. ```bower```
 4. ```karma-cli```
 
-If you are using a Debian-based Linux distro, you may install nodejs and npm by:
+If you are using a Debian-based Linux distro, you may install ```nodejs``` and ```npm``` by:
 
 ```bash
 # nodejs-legacy since it properly registers to PATH
