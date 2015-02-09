@@ -26,14 +26,16 @@ Current version is ```v0.0.1```.
 
 **Todo**
 
-- [ ] Tests
-- [ ] Automation
-- [ ] Documentation
+- [/] Tests
+- [x] Automation
+- [/] Documentation
 - [ ] Immediate invocation (calling of callback, etc)
 - [ ] Validation of properties passed to the isolate scope (proper error-trapping)
 - [ ] Dynamic changes for ```callback``` (huh?), ```threshold```, ``throttle```, and ```container``` (whut)
 - [ ] Removal of jQuery as dependency
 - [ ] Support for responsive apps
+
+*Legend*: ```/```: almost -- ```x``` done
 
 ## Getting Started
 
@@ -100,7 +102,6 @@ If you plan to contribute (put some fixes, add a feature, put some tests), then 
 1. ```nodejs```
 2. ```npm```
 3. ```bower```
-4. ```karma-cli```
 
 If you are using a Debian-based Linux distro, you may install ```nodejs``` and ```npm``` by:
 
@@ -130,7 +131,9 @@ Uglification / Testing:
 
 ```
 $ npm run test # Run the tests
+$ npm run build # Build / annotate (ng-annotate)
 $ npm run uglify # Uglify
+$ npm run start # (build and annotate)
 ```
 
 ### Coding Style
