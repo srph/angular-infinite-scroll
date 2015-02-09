@@ -1,4 +1,4 @@
-/**
+2/**
  * angular-infinite-scroll
  * @author Kier Borromeo (srph)
  * @repository https://github.com/srph/angular-infinite-scroll
@@ -82,7 +82,7 @@
           switch( container ) {
             case !!( angular.isUndefined(container) ): return $document;
             case !!( container instanceof HTMLElement ): return container;
-            case !!( container === true || container === false ): return element;
+            case !!( isBool(container) ): return element;
             case !!( angular.isString(container) ): return container == 'parent'
               ? element.parent()
               : $document.querySelector(container)
@@ -93,4 +93,11 @@
       }
     }
   }
+
+  /**
+   * Utility fn to check the value is a boolean
+   * @param {mixed} b value to be checked
+   * @returns {boolean}
+   */
+  function isBool(b) { return container === true || container === false };
 }(angular);
