@@ -1,8 +1,14 @@
+/**
+ * angular-infinite-scroll
+ * @author Kier Borromeo (srph)
+ * @repository https://github.com/srph/angular-infinite-scroll
+ * @license MIT
+ */
 +function(angular, undefined) {
   'use strict';
   angular
     .module('srph.infinite-scroll', [])
-    .directive('srInfiniteScroll', directive);
+    .directive('srphInfiniteScroll', directive);
 
   function directive($window, $document, $timeout, $q) {
     return {

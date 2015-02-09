@@ -4,7 +4,7 @@
   "description": "[![Author | Shields.io](http://img.shields.io/badge/author-%40srph-blue.svg?style=flat-square)](http://twitter.com/_srph) [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)",
   "main": "karma.conf.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/karma/bin/karma start"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,14 @@
   "bugs": {
     "url": "https://github.com/srph/angular-infinite-scroll/issues"
   },
-  "homepage": "https://github.com/srph/angular-infinite-scroll"
+  "homepage": "https://github.com/srph/angular-infinite-scroll",
+  "devDependencies": {
+    "jasmine-core": "^2.2.0",
+    "jasmine-jquery": "^2.0.6",
+    "karma": "^0.12.31",
+    "karma-jasmine": "^0.3.5",
+    "karma-jasmine-jquery": "^0.1.1",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "uglify-js": "^2.4.16"
+  }
 }

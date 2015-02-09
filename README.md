@@ -37,23 +37,95 @@ Current version is ```v0.0.1```.
 
 ## Getting Started
 
-Should work with AngularJS ```>=v1.2.0```
+Should work with AngularJS ```>=v1.2.0```. While planned in the future to be removed, this library requires jQuery (at least) ```>=v.1.7``` to work.
 
 ### Installation
 
-...
+```angular-infinite-scroll``` will be available on Bower on ```v0.1```.
+
+```
+$ bower install angular-srph-infinite-scroll --save
+```
+
+**\*** *The purpose of the ```--save``` argument is to add it your bower file's dependencies.*
+
+```angular-infinite-scroll``` is available on CDNs:
+- Raw GIT (```/path/to/angular-srph-infinite-scroll.js```)
+
+**Include the script to your HTML file after AngularJS**
+
+```
+<!-- other scripts -->
+<script src="/path/to/angular.js"></script>
+<script src="/path/to/angular-srph-infinite-scroll.js"></script>
+```
+
+**Add the library module to one of your app module's dependencies.**
+
+```js
+angular.module('myApp', [/** other dependencies */, 'srph.infinite-scroll']);
+```
 
 ### Usage
 
-...
+And then, use the directive on a container.
+
+```html
+<div srph-infinite-scroll="callback()">
+</div>
+```
+
+You may check the API Reference (still being written).
 
 ## Contribution
 
-...
+All contributions are appreciated. Please simply file an issue first for any inquiry, proposal, or question to avoid closed pull-requests; useless work. Thanks.
+
+```
+=========      ================
+| issue |  ->  | pull-request |
+=========      ================
+```
 
 ### Building
 
-...
+If you plan to contribute (put some fixes, add a feature, put some tests), then this is for you. Otherwise, I wouldn't recommend building the library from source (and probably won't make sense).
+
+**Requirements**
+
+1. ```nodejs```
+2. ```npm```
+3. ```bower```
+4. ```karma-cli```
+
+Start by cloning this repository. Then run these commands to install the project's dependencies:
+
+```bash
+$ cd </path/to/project-root> # replace with the root dir of the project
+$ npm install & bower install
+```
+
+Uglification / Testing:
+
+```
+$ npm run test # Run the tests
+$ npm run uglify # Uglify
+```
+
+### Coding Style
+
+This was copy-pasted from [```ReactJS```'s contribution style guide](https://github.com/facebook/react/blob/master/CONTRIBUTING.md)
+
+1. Use semicolons;
+2. Commas last,
+3. 2 spaces for indentation (no tabs)
+4. Prefer ```'``` over ```"```
+5. ```"use strict";```
+6. 80 character line length
+8. "Attractive"
+9. Keep it simple, stupid
+
+Do not forget to add tests!
 
 ## Acknowledgement
 
