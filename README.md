@@ -52,10 +52,11 @@ $ bower install angular-srph-infinite-scroll --save
 ```angular-infinite-scroll``` is available on CDNs:
 - Raw GIT (```/path/to/angular-srph-infinite-scroll.js```)
 
-**Include the script to your HTML file after AngularJS**
+**Include the script to your HTML file after jQuery and AngularJS** (must be in proper order).
 
 ```
 <!-- other scripts -->
+<script src="/path/to/jquery.js"></script>
 <script src="/path/to/angular.js"></script>
 <script src="/path/to/angular-srph-infinite-scroll.js"></script>
 ```
