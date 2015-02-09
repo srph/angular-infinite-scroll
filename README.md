@@ -59,7 +59,7 @@ $ bower install angular-srph-infinite-scroll --save
 
 **Include the script to your HTML file after jQuery and AngularJS** (must be in proper order).
 
-```
+```html
 <!-- other scripts -->
 <script src="/path/to/jquery.js"></script>
 <script src="/path/to/angular.js"></script>
