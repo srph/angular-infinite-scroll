@@ -98,6 +98,23 @@ If you plan to contribute (put some fixes, add a feature, put some tests), then 
 3. ```bower```
 4. ```karma-cli```
 
+If you are using a Debian-based Linux distro, you may install nodejs and npm by:
+
+```bash
+# nodejs-legacy since it properly registers to PATH
+$ apt-get install nodejs-legacy npm
+```
+
+If you have restriction / access issues, simply add ```sudo``` (```sudo apt-get install ...```).
+
+And then install ```bower``` and ```karma-cli``` which depends on nodejs and is registered through ```npm```.
+
+```
+$ npm install bower karma-cli  -g
+```
+
+Now, we'll start building the project itself.
+
 Start by cloning this repository. Then run these commands to install the project's dependencies:
 
 ```bash

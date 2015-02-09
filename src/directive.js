@@ -13,7 +13,7 @@
   function directive($window, $document, $timeout, $q) {
     return {
       scope: {
-        callback: '&srInfiniteScroll',
+        callback: '&srphInfiniteScroll',
         disabled: '=',
         container: '=',
         threshold: '=',
