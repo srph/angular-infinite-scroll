@@ -29,6 +29,7 @@ Current version is ```v0.0.1```.
 - [ ] Tests
 - [ ] Automation
 - [ ] Documentation
+- [ ] Immediate invocation (calling of callback, etc)
 - [ ] Validation of properties passed to the isolate scope (proper error-trapping)
 - [ ] Dynamic changes for ```callback``` (huh?), ```threshold```, ``throttle```, and ```container``` (whut)
 - [ ] Removal of jQuery as dependency
