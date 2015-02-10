@@ -82,7 +82,7 @@
           switch( container ) {
             case !!( angular.isUndefined(container) ): return 'body';
             case !!( isBool(container) ): return element;
-            case !!( angular.isString(container) && container == 'parent' ): return element.parent();
+            case !!( container === 'parent' ): return element.parent();
           }
         })();
 
