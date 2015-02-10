@@ -1,13 +1,39 @@
 describe('directive', function() {
-  beforeEach(module('app'));
+  var element
+    , compiled
+    , $timeout
+    , $window
+    , windowElm
+    , $document
+    , $q
+    , $compile
+    , $controller
+    , $controllerProvider
+    , $rootScope
+    , scope
+    , _mkController
 
-  var element, $timeout, $window, $document, $q;
-  beforeEach(inject(function(_$q_, _$window_, _$document_, _$timeout_) {
-    var $q = _$q_,
-      , $window = _$window_
-      , $document = _$document_
-      , $timeout = _$timeout_;
-  }));
+  beforeEach(function() {
+    angular
+      .module('srph.infinite-scroll.test', [])
+      .config(function(_$controllerProvider_) { $controllerProvider = _$controllerProvider_ });
+
+    beforeEach(module('srph.infinite-scroll'));
+
+    inject(function(_$q_, _$window_, _$document_, _$timeout_, _$controller_, _$rootScope_) {
+      var $q = _$q_,
+        , $window = _$window_
+        , windowElm = angular.element($window)
+        , $document = _$document_
+        , $compile = _$compile_
+        , $timeout = _$timeout_
+        , $controller = _$controller_
+        , $rootScope = _$rootScope_
+        , _mkController = function(controller) {
+          $controllerProvider.register('TestController', controller);
+        };
+    }));
+  });
 
   // YOLO
   it('should pass', function() {
@@ -16,9 +42,24 @@ describe('directive', function() {
 
   describe('scroll handler / infinite scroll', function() {
     describe('halt execution', function() {
-      it('should not scroll when disabled');
-      it('should not scroll when scope.disabled is undefined');
-      it('should not scroll when promise is not null');
+      it('should halt when disabled', function() {
+        element = mkelm({ disabled: true });
+        e.scroll(windowElement);
+      });
+
+      it('should not halt callback when scope.disabled is undefined', function() {
+        element = mkelm();
+        e.scroll(windowElement);
+      });
+
+      it('should not halt callback when scope.disabled is false', function() {
+        element = mkelm();
+        e.scroll(windowElement);
+      });
+
+      it('should halt when promise is not null', function() {
+        element = mkelm();
+      });
     });
 
     describe('trigger when the scroll reaches the bottom + threshold', function() {
@@ -35,3 +76,31 @@ describe('directive', function() {
     });
   });
 });
+
+function _mkElm(options) {
+  options = options || {};
+  var disabled = options.disabled;
+  var throttle = options.throttle;
+  var immediate = options.immediate;
+  var container = options.container;
+  var threshold = options.threshold;
+  var children = options.children;
+
+  return angular.element([
+    '<div ',
+      'srph-infinite-scroll="', optons.callback, '()"',
+      disabled !== undefined ? 'disabled="' + disabled + '"' : '',
+      throttle !== undefined ? 'throttle="' + throttle + '"' : '',
+      immediate !== undefined ? 'immediate="' + immediate + '"' : '',
+      container !== undefined ? 'container="' + container + '"' : '',
+      threshold !== undefined ? 'threshold="' + threshold + '"' : '',
+      '>',
+      children,
+    '</div>'
+  ].join(' '));
+}
+
+function scroll(e, t) {
+  var windowBottom = e.prop('scrollHeight');
+  e.scroll( windowBottom - t );
+}

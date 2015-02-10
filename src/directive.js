@@ -80,7 +80,7 @@
       function $getContainer(container) {
         var _container = (function() {
           switch( container ) {
-            case !!( angular.isUndefined(container) ): return $document;
+            case !!( angular.isUndefined(container) ): return $window;
             case !!( container instanceof HTMLElement ): return container;
             case !!( isBool(container) ): return element;
             case !!( angular.isString(container) ): return container == 'parent'
