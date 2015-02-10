@@ -2,17 +2,14 @@ describe('directive', function() {
   var element
     , compiled
     , $timeout
-    , $window
-    , windowElm
     , bodyElm
-    , $document
     , $q
     , $compile
     , $controller
     , $controllerProvider
     , $rootScope
     , $scope
-    , scope
+    , spyEvt
     , _mkController
 
   beforeEach(function() {
@@ -20,24 +17,24 @@ describe('directive', function() {
       .module('srph.infinite-scroll.test', [])
       .config(function(_$controllerProvider_) { $controllerProvider = _$controllerProvider_ });
 
-    module('srph.infinite-scroll');
+    module('srph.infinite-scroll', 'srph.infinite-scroll.test');
 
-    inject(function(_$compile_, _$q_, _$window_, _$document_, _$timeout_, _$controller_, _$rootScope_) {
+    inject(function(_$compile_, _$q_, _$timeout_, _$controller_, _$rootScope_) {
       $q = _$q_;
-      $window = _$window_
-      windowElm = angular.element($window)
-      $document = _$document_
-      $compile = _$compile_
-      $timeout = _$timeout_
-      $controller = _$controller_
-      $rootScope = _$rootScope_
-      $scope = $rootScope.$new()
+      $compile = _$compile_;
+      $timeout = _$timeout_;
+      $controller = _$controller_;
+      $rootScope = _$rootScope_;
+      $scope = $rootScope.$new();
       _mkController = function(controller) {
-        $controllerProvider.register('TestController', controller);
+        $controllerProvider.register('TestController', controller || function($scope) {
+          $scope.callback = angular.noop;
+        });
       };
     });
 
-    bodyElm = angular.element('body');
+    bodyElm = angular.element('html, body');
+    bodyElm.height(750);
   });
 
   // YOLO
@@ -48,8 +45,13 @@ describe('directive', function() {
   describe('scroll handler / infinite scroll', function() {
     describe('halt execution', function() {
       it('should halt when disabled', function() {
+        _mkController();
+        var controller = $controller('TestController', { $scope: $scope });
         element = _mkElm({ disabled: true });
+        // spyOn($scope, 'callback');
         scroll(element);
+        // expect($scope.callback).toHaveBeenCalled();
+        $timeout.flush()
       });
 
       it('should not halt callback when scope.disabled is undefined', function() {
@@ -69,21 +71,7 @@ describe('directive', function() {
 
     describe('trigger when the scroll reaches the bottom + threshold', function() {
       describe('trigger', function() {
-        it('should trigger for window', function () {
-          element = _mkElm();
-          compiled = compile(element);
-          scroll( bodyElm );
-        });
-
-        it('should trigger for parent container', function() {
-          bodyElm.append('<div id="parent"></div>');
-          var parent = bodyElm.children('#parent');
-          element = _mkElm({ container: 'parent' });
-
-          parent.append(element);
-          compiled = compile(parent);
-          scroll(compiled);
-        });
+        it('should trigger for window');
 
         it('should trigger for element', function() {
           element = _mkElm({ container: true });
@@ -114,7 +102,8 @@ describe('directive', function() {
 
     return angular.element([
       '<div ',
-        'srph-infinite-scroll="', callback, '()"',
+        'srph-infinite-scroll="callback()"',
+        'style="height: 500px; overflow: scroll"; width: 100%;',
         disabled !== undefined ? 'disabled="' + disabled + '"' : '',
         throttle !== undefined ? 'throttle="' + throttle + '"' : '',
         immediate !== undefined ? 'immediate="' + immediate + '"' : '',
@@ -127,12 +116,18 @@ describe('directive', function() {
   }
 
   function scroll(e, t) {
+    expect( e.scrollTop() ).toBe(0);
     var bottom = e.prop('scrollHeight');
-    e.scroll( bottom - t );
+    var height = e.height();
+    var s = Math.abs((bottom - height <= 0 ? bottom : bottom - height)) - (t || 0);
+    e.scrollTop( s );
+    e.scroll();
+    e.triggerHandler('scroll');
+    expect( e.scrollTop() ).toBe(s);
   }
 
   function compile(e) {
-    var c = $compile( angular.element('<div></div>') )($scope);
+    var c = $compile( e )($scope);
     $scope.$digest();
     return c;
   }

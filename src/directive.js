@@ -1,4 +1,4 @@
-2/**
+/**
  * angular-infinite-scroll
  * @author Kier Borromeo (srph)
  * @repository https://github.com/srph/angular-infinite-scroll
@@ -17,8 +17,8 @@
         disabled: '=',
         container: '=',
         threshold: '=',
-        throttle: '=',
-        immediate: '='
+        throttle: '='
+        // immediate: '='
       },
 
       restrict: 'EA',
@@ -30,7 +30,7 @@
       var callback = scope.callback;
       var threshold = scope.threshold || 100;
       var throttle = scope.throttle || 350;
-      var immediate = !!scope.immediate || true;
+      // var immediate = !!scope.immediate || true;
       var $container = $getContainer(scope.container);
 
       $container.on('scroll', $handle); // Scroll event listener
@@ -56,7 +56,7 @@
         var scrollHeight = $container.prop('scrollHeight'); // Container height + amount of scrolling
 
         // scrollHeight - height = scroll offset
-        if ( scroll + threshold > scrollHeight - height ) {
+        if ( scroll + threshold >= scrollHeight - height ) {
           promise = $timeout(function() {
             // We use $q.when to set the `promise` flag (if the callback is still running)
             // to null (set the flag as done / no execution is running) so async
@@ -82,7 +82,6 @@
           switch( container ) {
             case !!( angular.isUndefined(container) ): return 'body';
             case !!( isBool(container) ): return element;
-            case !!( container === 'parent' ): return element.parent();
           }
         })();
 
