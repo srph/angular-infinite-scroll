@@ -83,9 +83,7 @@
             case !!( angular.isUndefined(container) ): return 'body';
             case !!( container instanceof HTMLElement ): return container;
             case !!( isBool(container) ): return element;
-            case !!( angular.isString(container) ): return container == 'parent'
-              ? element.parent()
-              : $document.querySelector(container)
+            case !!( angular.isString(container) && container == 'parent' ): return element.parent();
           }
         })();
 
@@ -99,5 +97,5 @@
    * @param {mixed} b value to be checked
    * @returns {boolean}
    */
-  function isBool(b) { return container === true || container === false };
+  function isBool(b) { return b === true || b === false };
 }(angular);

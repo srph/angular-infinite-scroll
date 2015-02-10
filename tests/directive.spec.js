@@ -64,15 +64,32 @@ describe('directive', function() {
 
     describe('trigger when the scroll reaches the bottom + threshold', function() {
       describe('trigger', function() {
-        it('should trigger for window');
-        it('should trigger for parent container');
-        it('should trigger for HTMLElement (where the directive is applied)');
-        it('should trigger for element');
-        it('should trigger for element (string)');
+        it('should trigger for window', function () {
+          
+        });
+
+        it('should trigger for parent container', function() {
+          // body...
+        });
+
+        it('should trigger for HTMLElement (where the directive is applied)', function() {
+
+        });
+        it('should trigger for element', function() {
+
+        });
+        it('should trigger for element (string)', function() {
+
+        });
       });
 
-      it('should execute callback in <throttle-ms> (e.g, 500ms)');
-      it('should assign promise to null only after the callback is finished (testing async)');
+      it('should execute callback in <throttle-ms> (e.g, 500ms)', function() {
+
+      });
+
+      it('should assign promise to null only after the callback is finished (testing async)', function() {
+        
+      });
     });
   });
 });
