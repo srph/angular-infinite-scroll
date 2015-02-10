@@ -4,12 +4,14 @@ describe('directive', function() {
     , $timeout
     , $window
     , windowElm
+    , bodyElm
     , $document
     , $q
     , $compile
     , $controller
     , $controllerProvider
     , $rootScope
+    , $scope
     , scope
     , _mkController
 
@@ -20,19 +22,22 @@ describe('directive', function() {
 
     module('srph.infinite-scroll');
 
-    inject(function(_$q_, _$window_, _$document_, _$timeout_, _$compile_, _$controller_, _$rootScope_) {
-      var $q = _$q_
-        , $window = _$window_
-        , windowElm = angular.element($window)
-        , $document = _$document_
-        , $compile = _$compile_
-        , $timeout = _$timeout_
-        , $controller = _$controller_
-        , $rootScope = _$rootScope_
-        , _mkController = function(controller) {
-          $controllerProvider.register('TestController', controller);
-        };
+    inject(function(_$compile_, _$q_, _$window_, _$document_, _$timeout_, _$controller_, _$rootScope_) {
+      $q = _$q_;
+      $window = _$window_
+      windowElm = angular.element($window)
+      $document = _$document_
+      $compile = _$compile_
+      $timeout = _$timeout_
+      $controller = _$controller_
+      $rootScope = _$rootScope_
+      $scope = $rootScope.$new()
+      _mkController = function(controller) {
+        $controllerProvider.register('TestController', controller);
+      };
     });
+
+    bodyElm = angular.element('body');
   });
 
   // YOLO
@@ -65,60 +70,70 @@ describe('directive', function() {
     describe('trigger when the scroll reaches the bottom + threshold', function() {
       describe('trigger', function() {
         it('should trigger for window', function () {
-          
+          element = _mkElm();
+          compiled = compile(element);
+          scroll( bodyElm );
         });
 
         it('should trigger for parent container', function() {
-          // body...
+          bodyElm.append('<div id="parent"></div>');
+          var parent = bodyElm.children('#parent');
+          element = _mkElm({ container: 'parent' });
+
+          parent.append(element);
+          compiled = compile(parent);
+          scroll(compiled);
         });
 
-        it('should trigger for HTMLElement (where the directive is applied)', function() {
-
-        });
         it('should trigger for element', function() {
-
-        });
-        it('should trigger for element (string)', function() {
-
+          element = _mkElm({ container: true });
+          compiled = compile(element);
+          scroll(compiled);
         });
       });
 
-      it('should execute callback in <throttle-ms> (e.g, 500ms)', function() {
+      it('should execute callback i qn <throttle-ms> (e.g, 500ms)', function() {
 
       });
 
       it('should assign promise to null only after the callback is finished (testing async)', function() {
-        
+
       });
     });
   });
+
+  function _mkElm(options) {
+    options = options || {};
+    var callback = options.callback;
+    var disabled = options.disabled;
+    var throttle = options.throttle;
+    var immediate = options.immediate;
+    var container = options.container;
+    var threshold = options.threshold;
+    var children = options.children;
+
+    return angular.element([
+      '<div ',
+        'srph-infinite-scroll="', callback, '()"',
+        disabled !== undefined ? 'disabled="' + disabled + '"' : '',
+        throttle !== undefined ? 'throttle="' + throttle + '"' : '',
+        immediate !== undefined ? 'immediate="' + immediate + '"' : '',
+        container !== undefined ? 'container="' + container + '"' : '',
+        threshold !== undefined ? 'threshold="' + threshold + '"' : '',
+        '>',
+        children,
+      '</div>'
+    ].join(' '));
+  }
+
+  function scroll(e, t) {
+    var bottom = e.prop('scrollHeight');
+    e.scroll( bottom - t );
+  }
+
+  function compile(e) {
+    var c = $compile( angular.element('<div></div>') )($scope);
+    $scope.$digest();
+    return c;
+  }
 });
-
-function _mkElm(options) {
-  options = options || {};
-  var callback = options.callback;
-  var disabled = options.disabled;
-  var throttle = options.throttle;
-  var immediate = options.immediate;
-  var container = options.container;
-  var threshold = options.threshold;
-  var children = options.children;
-
-  return angular.element([
-    '<div ',
-      'srph-infinite-scroll="', callback, '()"',
-      disabled !== undefined ? 'disabled="' + disabled + '"' : '',
-      throttle !== undefined ? 'throttle="' + throttle + '"' : '',
-      immediate !== undefined ? 'immediate="' + immediate + '"' : '',
-      container !== undefined ? 'container="' + container + '"' : '',
-      threshold !== undefined ? 'threshold="' + threshold + '"' : '',
-      '>',
-      children,
-    '</div>'
-  ].join(' '));
-}
-
-function scroll(e, t) {
-  var bottom = e.prop('scrollHeight');
-  e.scroll( bottom - t );
-}

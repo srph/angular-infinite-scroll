@@ -40,6 +40,8 @@ Current version is ```v0.0.1```.
 
 ## Getting Started
 
+Getting started is very easy!
+
 **Requirements**
 
 - AngularJS ```>=v1.2.0``` (Should work with)
@@ -53,12 +55,12 @@ Current version is ```v0.0.1```.
 $ bower install angular-srph-infinite-scroll --save
 ```
 
-**\*** *The purpose of the ```--save``` argument is to add it your bower file's dependencies.*
+***** *The purpose of the ```--save``` argument is to add it your bower file's dependencies.*
 
 ```angular-infinite-scroll``` is available on CDNs:
 - Raw GIT (```/path/to/angular-srph-infinite-scroll.js```)
 
-**Include the script to your HTML file after jQuery and AngularJS** (must be in proper order).
+**Include the script to your HTML file after jQuery and AngularJS** (must be in proper order).**
 
 ```html
 <!-- other scripts -->
@@ -135,6 +137,15 @@ $ npm run test # Run the tests
 $ npm run build # Build / annotate (ng-annotate)
 $ npm run uglify # Uglify
 $ npm run start # (build and annotate)
+```
+
+If you would like to watch the files for the tests, install ```karma-cli``` (allows you to use ```karma``` on the cli).
+
+```bash
+$ npm install karma-cli 
+
+# on root dir
+$ karma start
 ```
 
 ### Coding Style

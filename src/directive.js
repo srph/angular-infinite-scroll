@@ -81,7 +81,6 @@
         var _container = (function() {
           switch( container ) {
             case !!( angular.isUndefined(container) ): return 'body';
-            case !!( container instanceof HTMLElement ): return container;
             case !!( isBool(container) ): return element;
             case !!( angular.isString(container) && container == 'parent' ): return element.parent();
           }
