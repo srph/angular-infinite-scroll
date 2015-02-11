@@ -26,14 +26,22 @@
     };
 
     function linkFn(scope, element, attributes) {
+      var _windowElm = angular.element($window);
+      var _docElm = angular.element($document);
+      var _bodyElm = angular.element('html, body');
+
       var promise = null;
       var callback = scope.callback;
-      var threshold = scope.threshold || 100;
+      var threshold = scope.threshold || 200;
       var throttle = scope.throttle || 350;
       // var immediate = !!scope.immediate || true;
-      var $container = $getContainer(scope.container);
 
-      $container.on('scroll', $handle); // Scroll event listener
+      var $container = $getContainer(scope.container);
+      var isContainerElm = $container == element;
+      var isContainerBody = $container == _bodyElm;
+      var $scrollingContainer = isContainerBody ?  _windowElm : element;
+
+      $scrollingContainer.on('scroll', $handle); // Scroll event listener
       scope.$on('$destroy', $handleUnbind) // Scope listener
 
       /**
@@ -44,6 +52,7 @@
        * scrolling. ... `
        */
       function $handle(evt) {
+
         // Halt the execution if the disabled flag is set and true
         // or if the execution is still running
         var disabled = scope.disabled;
@@ -51,12 +60,12 @@
           return;
         }
 
-        var height = $container.height(); // Container height
-        var scroll = $container.scrollTop(); // The amount of scrolling
-        var scrollHeight = $container.prop('scrollHeight'); // Container height + amount of scrolling
+        var height = isContainerBody ? _windowElm.scrollTop() : $container.innerHeight(); // Container height
+        var scroll = isContainerBody ? _windowElm.height() : $container.scrollTop(); // The amount of scrolling
+        var bottom = $container.prop('scrollHeight'); // Container height + amount of scrolling
 
         // scrollHeight - height = scroll offset
-        if ( scroll + threshold >= scrollHeight - height ) {
+        if ( scroll + threshold >= bottom - height ) {
           promise = $timeout(function() {
             // We use $q.when to set the `promise` flag (if the callback is still running)
             // to null (set the flag as done / no execution is running) so async
@@ -78,22 +87,11 @@
        *
        */
       function $getContainer(container) {
-        var _container = (function() {
-          switch( container ) {
-            case !!( angular.isUndefined(container) ): return 'body';
-            case !!( isBool(container) ): return element;
-          }
-        })();
+        if ( angular.isUndefined(container) ) return _bodyElm;
+        if ( !!container ) return element;
 
-        return angular.element(_container);
+        throw new Error('Container option is not accepted.');
       }
     }
   }
-
-  /**
-   * Utility fn to check the value is a boolean
-   * @param {mixed} b value to be checked
-   * @returns {boolean}
-   */
-  function isBool(b) { return b === true || b === false };
 }(angular);
