@@ -30,11 +30,8 @@ Current version is ```v0.0.1```.
 - [/] Tests
 - [x] Automation
 - [/] Documentation
-- [ ] Immediate invocation (calling of callback, etc)
-- [ ] Validation of properties passed to the isolate scope (proper error-trapping)
-- [ ] Dynamic changes for ```callback``` (huh?), ```threshold```, ``throttle```, and ```container``` (whut)
 - [ ] Removal of jQuery as dependency
-- [ ] Support for responsive apps
+- [ ] Support for responsive apps (threshold, lel)
 
 *Legend*: ```/```: almost -- ```x``` done
 
