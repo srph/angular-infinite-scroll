@@ -69,8 +69,9 @@
           promise = $timeout(function() {
             // We use $q.when to set the `promise` flag (if the callback is still running)
             // to null (set the flag as done / no execution is running) so async
-            // shit is considered
-            $q.when(callback()).then(function() { promise = null });
+            // shit is considered.
+            // `finally` block so incase the promise was rejected or whatever.
+            $q.when(callback()).finally(function() { promise = null });
           }, throttle, true);
         }
       }
@@ -84,7 +85,7 @@
       }
 
       /**
-       *
+       * Returns the container based on the `container` parameter.
        */
       function $getContainer(container) {
         if ( angular.isUndefined(container) ) return _bodyElm;
