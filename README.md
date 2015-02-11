@@ -23,7 +23,7 @@ One thing is that it's not better.
 
 ### Status
 
-Current version is ```v0.0.1```.
+Current version is ```v0.0.1```. All tests are failing because I suck. Please send a PR, thanks.
 
 **Todo**
 
