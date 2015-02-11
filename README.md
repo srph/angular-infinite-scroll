@@ -1,6 +1,7 @@
 # angular-infinite-scroll
 
 [![Build Status](https://travis-ci.org/srph/angular-infinite-scroll.svg?branch=master)](https://travis-ci.org/srph/angular-infinite-scroll)
+[![Bower version](https://badge.fury.io/bo/angular-srph-infinite-scroll.svg)](http://badge.fury.io/bo/angular-srph-infinite-scroll)
 [![Author | Shields.io](http://img.shields.io/badge/author-%40srph-blue.svg?style=flat-square)](http://twitter.com/_srph)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
@@ -23,7 +24,7 @@ One thing is that it's not better.
 
 ### Status
 
-Current version is ```v0.0.1```. All tests are failing because I suck. Please send a PR, thanks.
+Current version is ```v0.1.0```. All tests are failing because I suck. Please send a PR, thanks.
 
 **Todo**
 
@@ -46,7 +47,7 @@ Getting started is very easy!
 
 ### Installation
 
-```angular-infinite-scroll``` will be available on Bower on ```v0.1```.
+```angular-infinite-scroll``` is available on **Bower**:
 
 ```
 $ bower install angular-srph-infinite-scroll --save
@@ -54,8 +55,14 @@ $ bower install angular-srph-infinite-scroll --save
 
 ***** *The purpose of the ```--save``` argument is to add it your bower file's dependencies.*
 
-```angular-infinite-scroll``` is available on CDNs:
-- Raw GIT (```/path/to/angular-srph-infinite-scroll.js```)
+```angular-infinite-scroll``` is also available on CDN(s):
+
+- **Raw GIT**
+```html
+<script src="https://cdn.rawgit.com/srph/angular-infinite-scroll/master/dist/angular-srph-infinite-scroll.js"></script>
+<!-- min -->
+<script src="https://cdn.rawgit.com/srph/angular-infinite-scroll/master/dist/angular-srph-infinite-scroll.min.js"></script>
+```
 
 **Include the script to your HTML file after jQuery and AngularJS** (must be in proper order).**
 
@@ -77,7 +84,11 @@ angular.module('myApp', [/** other dependencies */, 'srph.infinite-scroll']);
 And then, use the directive on a container.
 
 ```html
-<div srph-infinite-scroll="callback()">
+<div srph-infinite-scroll="callback()"
+  disabled="true"
+  container="true"
+  throttle="0"
+  threshold="200">
 </div>
 ```
 
