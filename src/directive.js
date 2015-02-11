@@ -60,8 +60,8 @@
           return;
         }
 
-        var height = isContainerBody ? _windowElm.scrollTop() : $container.innerHeight(); // Container height
-        var scroll = isContainerBody ? _windowElm.height() : $container.scrollTop(); // The amount of scrolling
+        var height = $scrollingContainer.innerHeight(); // Container height
+        var scroll = $scrollingContainer.scrollTop(); // The amount of scrolling
         var bottom = $container.prop('scrollHeight'); // Container height + amount of scrolling
 
         // scrollHeight - height = scroll offset
