@@ -9,7 +9,7 @@ Another infinite scroll shit solution for AngularJS.
 
 ## Important Notes
 
-Latest versions are still alpha and should not be used for production.
+Latest versions are beta releases and are subject to change; also not recommended for production (although I am using it on an enterprise project).
 
 ### Why another Infinite Scroll solution?
 
@@ -24,7 +24,7 @@ One thing is that it's not better.
 
 ### Status
 
-Current version is ```v0.1.0```. All tests are failing because I suck. Please send a PR, thanks.
+All tests are failing because I suck. Please send a PR, thanks.
 
 **Todo**
 
@@ -86,12 +86,14 @@ And then, use the directive on a container.
 
 ```html
 <div srph-infinite-scroll="callback()"
-  disabled="true"
-  container="true"
-  throttle="0"
-  threshold="200">
+  {disabled="true"}
+  {container="true"}
+  {throttle="0"}
+  {threshold="200"}>
 </div>
 ```
+
+* (The (```{``` & ```}```) enclosures indicate that the parameter is optional)
 
 #### ```srph-infinite-scroll``` (```expression```)
 
@@ -129,7 +131,7 @@ Set ```true``` to use the element which the directive is applied to; leave as bl
 
 The example below illustrates that ```myCallback()``` will be executed when the ```div``` is scrolled to the bottom
 
-```
+```html
 <div style="overflow: scroll; height: 500px;" srph-infinite-scroll="myCallback()" container="true">
   <div ng-repeat="apple in apples"> {{ apple.name }} </div>
 </div>
