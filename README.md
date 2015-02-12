@@ -5,7 +5,7 @@
 [![Author | Shields.io](http://img.shields.io/badge/author-%40srph-blue.svg?style=flat-square)](http://twitter.com/_srph)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
-Another infinite scroll shit solution for AngularJS.
+A simple infinite scroll solution for AngularJS weighing < ```1 KB``` (minified).
 
 ## Important Notes
 
@@ -82,6 +82,8 @@ angular.module('myApp', [/** other dependencies */, 'srph.infinite-scroll']);
 
 ### Usage
 
+The API is fairly simple.
+
 Use the directive on a container element.
 
 ```html
@@ -95,7 +97,7 @@ Use the directive on a container element.
 </div>
 ```
 
-\* (The (```{``` & ```}```) enclosures indicate that the parameter is optional)
+\* The (```{``` & ```}```) enclosures indicate that the parameter is optional.
 
 #### ```srph-infinite-scroll``` (```expression```)
 
@@ -127,9 +129,7 @@ Scroll allowance for executing the callback when reaching the bottom. This allow
 
 #### ```container``` (```boolean```)
 
-Use the container (element which the directive was applies to) for the infinite scrolling instead of the window.
-
-Set ```true``` to use the element which the directive is applied to; leave as blank to use the ```body``` / ```$window```.
+Use the container (element which the directive was applies to) for the infinite scrolling instead of the window. Set ```true``` to use the element which the directive is applied to; leave as blank to use the ```body``` / ```$window```.
 
 The example below illustrates that ```myCallback()``` will be executed when the ```div``` is scrolled to the bottom:
 
@@ -217,8 +217,6 @@ This was copy-pasted from [```ReactJS```'s contribution style guide](https://git
 6. 80 character line length
 8. "Attractive"
 9. Keep it simple, stupid
-
-Do not forget to add tests!
 
 ## Acknowledgement
 
