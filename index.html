@@ -1,35 +1,88 @@
+<!--
+  angular-infinite-scroll - (c) 2014 Kier Borromeo | @srph
+  @link http://srph.github.io/angular-infinite-scroll
+  @repository http://github.com/srph/angular-infinite-scroll
+  @license MIT
+   __   .__                                    .__ 
+  |  | _|__| ___________  ______   ____   ____ |__|
+  |  |/ /  |/ __ \_  __ \ \____ \ /  _ \ / ___\|  |
+  |    <|  \  ___/|  | \/ |  |_> >  <_> ) /_/  >  |
+  |__|_ \__|\___  >__|    |   __/ \____/\___  /|__|
+       \/       \/        |__|         /_____/     
+-->
 <!DOCTYPE html>
 <html>
 <head>
   <title>srph/angular-infinite-scroll</title>
   <meta charset="utf-8">
-
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,700,500,600,300,200,100' rel='stylesheet' type='text/css'>
   <link href="//cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" rel="stylesheet">
+  <style>
+    .u-text-center { text-align: center; }
+    .u-box-allowance { margin-top: 50px; margin-bottom: 25px;}
+    .container { width: 768px; margin-top: 25px; margin-bottom: 25px; }
+  </style>
 </head>
 <body>
-  <div class="container">
+  <div class="container u-text-center">
     <h1> srph/angular-infinite-scroll </h1>
-    <a href="#" class="button button-primary"> Github Repository </a>
-    <iframe src="https://ghbtns.com/github-btn.html?user=srph&repo=angular-infinite-scroll&type=star&count=true"
-      frameborder="0"
-      scrolling="0"
-      width="170px"
-      height="20px">
-    </iframe>
+
+    <p>A simple infinite scroll for AngularJS weighing  <kbd>&lt;1 KB</kbd>. </p>.
+
+    <a href="#" class="button button-primary" style="margin-right: 5px;"> Github Repository </a>
 
     <iframe src="https://ghbtns.com/github-btn.html?user=srph&type=follow&count=true"
       frameborder="0"
       scrolling="0"
-      width="170px"
+      width="135px"
       height="20px">
     </iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=srph&repo=angular-infinite-scroll&type=star&count=true"
+      frameborder="0"
+      scrolling="0"
+      width="75px"
+      height="20px">
+    </iframe>
+
+    <hr>
+
+    <p class="u-text-center">Here are some examples to help you get started.</p>
+
+
+    <div style="1px solid #ddd" class="u-text-center u-box-allowance">
+      <h3> Basic </h3>
+      <p>
+        Here is a basic implementation of the infinite-scroll. Keep on scrolling, <em>forever</em> (<em>Walang forever</em>).
+      </p>
+      <iframe src="http://embed.plnkr.co/MjtyRMY8ixSwGai9ypZG/preview"
+        frameborder="0"
+        height="500px"
+        width="700px">
+      </iframe>
+    </div>
+
+    Infinite scrolling on a container element (which means we track the scrolling on an element instead of window).
+        Keep on scrolling, we should stop by 24.
+
+    <div style="1px solid #ddd" class="u-text-center u-box-allowance">
+      <h3> Advanced </h3>
+      <p> All together now! </p>
+      <p>
+        Implements the infinite scrolling on a container element, with a <kbd>threshold</kbd> of <kbd>500px</kbd>,
+        with a throttle of <kbd>50s</kbd>, and an asynchronous callback (<kbd>$timeout</kbd> is an asynchronous method) which finishes in <kbd>2s</kbd> (notice that scrolling won't trigger the callback until it finishes).
+      </p>
+      <iframe src="http://embed.plnkr.co/9mfa7WMi5S8OTPrQrDi0/preview"
+        frameborder="0"
+        height="500px"
+        width="700px">
+      </iframe>
+    </div>
   </div>
 
   <!-- Thanks, Raw GIT, CDNjs -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.12/angular.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js"></script>
   <script src="//cdn.rawgit.com/srph/angular-infinite-scroll/master/dist/angular-srph-infinite-scroll.min.js"></script>
-  <script src="script.js"></script>
 </body>
 </html>
