@@ -30,7 +30,8 @@ Current version is ```v0.1.0```. All tests are failing because I suck. Please se
 
 - [/] Tests
 - [x] Automation
-- [/] Documentation
+- [x] Documentation
+- [ ] Examples
 - [ ] Removal of jQuery as dependency
 - [ ] Support for responsive apps (threshold, lel)
 
@@ -92,7 +93,47 @@ And then, use the directive on a container.
 </div>
 ```
 
-You may check the API Reference (still being written).
+#### ```srph-infinite-scroll``` (```expression```)
+
+Callback to be evaluated (expression to be evaluated) when the current scroll position reaches the *bottom*.
+
+\* If the callback runs an asynchronous method (```$http```), please make sure to return the promise like so:
+
+```js
+$scope.myCallback() = function() {
+  return $http.get('api/v1/..')
+    .then(onSuccess)
+    .catch(onError);
+}
+```
+
+Failing to do so, unexpected behaviors may occur.
+
+#### ```disabled``` (```boolean```, *default*: ```false```)
+
+Disable callback from being executed.
+
+#### ```throttle``` (```number```, *default*: ```350```)
+
+Delays the execution of the callback
+
+#### ```threshold``` (```number```, *default*: ```0```)
+
+Scroll allowance for executing the callback when reaching the bottom. This allows you to get the callback executed even before reaching the bottom.
+
+#### ```container``` (```boolean```)
+
+Container to apply the infinite scrolling.
+
+Set ```true``` to use the element which the directive is applied to; leave as blank to use the ```body``` / ```$window```.
+
+The example below illustrates that ```myCallback()``` will be executed when the ```div``` is scrolled to the bottom
+
+```
+<div style="overflow: scroll; height: 500px;" srph-infinite-scroll="myCallback()" container="true">
+  <div ng-repeat="apple in apples"> {{ apple.name }} </div>
+</div>
+```
 
 ## Contribution
 
