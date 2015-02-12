@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> srph/angular-infinite-scroll | Examples - Container </title>
+  <meta charset="utf-8">
+
+  <style>
+    #yolo {
+      height: 400px;
+      width: 100%;
+      overflow: scroll;
+      background: green;
+    }
+
+    .yolo {
+      height: 100px;
+      width: 100%;
+      margin-bottom: 25px;
+      margin-top: 25px;
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div ng-controller="YoloController">
+      <div id="yolo" srph-infinite-scroll="$load()" container="true" disabled="isDisabled" threshold="5000">
+        <div ng-repeat="n in collection track by $index" class="yolo"> <h1> {{ n }} </h1> </div>
+        <div ng-if="isLoading"> Loading.. </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.12/angular.js"></script>
+  <script src="../dist/angular-srph-infinite-scroll.js"></script>
+
+  <script>
+    +function(angular) {
+      angular
+        .module('app', ['srph.infinite-scroll'])
+        .controller('YoloController', YoloController);
+
+      function YoloController($scope, $timeout) {
+        var n;
+
+        angular.extend($scope, {
+          collection: (function() {
+            var collection = [];
+
+            for ( n = 0; n < 5; n++ ) collection.push(n)
+
+            return collection;
+          })(),
+          isLoading: false,
+          isDisabled: false,
+          $load: $load
+        });
+
+        function $load() {
+          $scope.isLoading = true;
+
+          return $timeout(function() {
+            var collection = [];
+            var last = n + 5;
+
+            for ( ; n < last; n++ ) {
+              // collection.push(Math.random() * 12345 + 0);
+              $scope.collection.push( n );
+            }
+
+            if ( n > 20 ) {
+              $scope.isDisabled = true;
+            }
+
+            // $scope.collection.concat(collection);
+            $scope.isLoading = false;
+            console.log('yolo');
+          }, 250);
+        }
+      }
+
+      angular.bootstrap(document, ['app']);
+    }(angular);
+  </script>
+</body>
+</html>
