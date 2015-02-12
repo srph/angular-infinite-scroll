@@ -54,9 +54,9 @@ Getting started is very easy!
 $ bower install angular-srph-infinite-scroll --save
 ```
 
-***** *The purpose of the ```--save``` argument is to add it your bower file's dependencies.*
+\* *The purpose of the ```--save``` argument is to add it your bower file's dependencies.*
 
-```angular-infinite-scroll``` is also available on CDN(s):
+```angular-infinite-scroll``` is also available on **CDN**(s):
 
 - **Raw GIT**
 ```html
@@ -82,7 +82,7 @@ angular.module('myApp', [/** other dependencies */, 'srph.infinite-scroll']);
 
 ### Usage
 
-And then, use the directive on a container.
+Use the directive on a container element.
 
 ```html
 <div srph-infinite-scroll="callback()"
@@ -90,10 +90,12 @@ And then, use the directive on a container.
   {container="true"}
   {throttle="0"}
   {threshold="200"}>
+  <!-- your ng-repeat, typically -->
+  <div ng-repeat="apple in apples"> {{ apple.name }} </div>
 </div>
 ```
 
-* (The (```{``` & ```}```) enclosures indicate that the parameter is optional)
+\* (The (```{``` & ```}```) enclosures indicate that the parameter is optional)
 
 #### ```srph-infinite-scroll``` (```expression```)
 
@@ -125,27 +127,31 @@ Scroll allowance for executing the callback when reaching the bottom. This allow
 
 #### ```container``` (```boolean```)
 
-Container to apply the infinite scrolling.
+Use the container (element which the directive was applies to) for the infinite scrolling instead of the window.
 
 Set ```true``` to use the element which the directive is applied to; leave as blank to use the ```body``` / ```$window```.
 
-The example below illustrates that ```myCallback()``` will be executed when the ```div``` is scrolled to the bottom
+The example below illustrates that ```myCallback()``` will be executed when the ```div``` is scrolled to the bottom:
 
 ```html
 <div style="overflow: scroll; height: 500px;" srph-infinite-scroll="myCallback()" container="true">
-  <div ng-repeat="apple in apples"> {{ apple.name }} </div>
+  <ul>
+    <li> ng-repeat="apple in apples"> {{ apple.name }} </li>
+  </ul>
 </div>
 ```
 
 ## Contribution
 
-All contributions are appreciated. Please simply file an issue first for any inquiry, proposal, or question to avoid closed pull-requests; useless work. Thanks.
+All contributions are appreciated. Please simply file an issue first for any inquiry, proposal, or question to avoid closed pull-requests; useless work. Thanks!
 
 ```
 =========      ================
 | issue |  ->  | pull-request |
 =========      ================
 ```
+
+Pull-requests with test or without are both appreciated!
 
 ### Building
 
