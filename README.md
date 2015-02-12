@@ -7,9 +7,29 @@
 
 A simple infinite scroll solution for AngularJS weighing < ```1 KB``` (minified).
 
+## Content
+
+- [Important Notes](#important-notes)
+  - [Why another Infinite Scroll solution?](#why-another-infinite-scroll-solution)
+  - [Status](#status)
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Usage](#usage)
+    - [srph-infinite-scroll](#srph-infinite-scroll-expression)
+    - [srph-infinite-scroll](#disabled-boolean-default-false)
+    - [srph-infinite-scroll](#throttle-number-default-350)
+    - [srph-infinite-scroll](#threshold-number-default-200)
+    - [container](#container-boolean)
+  - [Examples](#examples)
+- [Contributing](#contributing)
+  - [Building](#building)
+  - [Coding Style](#coding-style)
+
 ## Important Notes
 
 Latest versions are beta releases and are subject to change; also not recommended for production (although I am using it on an enterprise project).
+
+[Back to top](#content)
 
 ### Why another Infinite Scroll solution?
 
@@ -21,6 +41,8 @@ Latest versions are beta releases and are subject to change; also not recommende
 - I don't know at all.
 
 One thing is that it's not better.
+
+[Back to top](#content)
 
 ### Status
 
@@ -37,9 +59,13 @@ All tests are failing because I suck. Please send a PR, thanks.
 
 *Legend*: ```/```: almost -- ```x``` done
 
+[Back to top](#content)
+
 ## Getting Started
 
 Getting started is very easy!
+
+[Back to top](#content)
 
 **Requirements**
 
@@ -80,6 +106,8 @@ $ bower install angular-srph-infinite-scroll --save
 angular.module('myApp', [/** other dependencies */, 'srph.infinite-scroll']);
 ```
 
+[Back to top](#content)
+
 ### Usage
 
 The API is fairly simple.
@@ -99,6 +127,8 @@ Use the directive on a container element.
 
 \* The (```{``` & ```}```) enclosures indicate that the parameter is optional.
 
+[Back to top](#content)
+
 #### ```srph-infinite-scroll``` (```expression```)
 
 Callback to be evaluated (expression to be evaluated) when the current scroll position reaches the *bottom*.
@@ -115,17 +145,25 @@ $scope.myCallback() = function() {
 
 Failing to do so, unexpected behaviors may occur.
 
+[Back to top](#content)
+
 #### ```disabled``` (```boolean```, *default*: ```false```)
 
 Disable callback from being executed.
+
+[Back to top](#content)
 
 #### ```throttle``` (```number```, *default*: ```350```)
 
 Delays the execution of the callback
 
-#### ```threshold``` (```number```, *default*: ```0```)
+[Back to top](#content)
+
+#### ```threshold``` (```number```, *default*: ```200```)
 
 Scroll allowance for executing the callback when reaching the bottom. This allows you to get the callback executed even before reaching the bottom.
+
+[Back to top](#content)
 
 #### ```container``` (```boolean```)
 
@@ -141,6 +179,14 @@ The example below illustrates that ```myCallback()``` will be executed when the 
 </div>
 ```
 
+[Back to top](#content)
+
+### Examples
+
+Head over to the <a href="http://srph.github.io/angular-infinite-scroll/">examples page</a> to help you get started!
+
+[Back to top](#content)
+
 ## Contribution
 
 All contributions are appreciated. Please simply file an issue first for any inquiry, proposal, or question to avoid closed pull-requests; useless work. Thanks!
@@ -152,6 +198,8 @@ All contributions are appreciated. Please simply file an issue first for any inq
 ```
 
 Pull-requests with test or without are both appreciated!
+
+[Back to top](#content)
 
 ### Building
 
@@ -205,6 +253,8 @@ $ npm install karma-cli
 $ karma start
 ```
 
+[Back to top](#content)
+
 ### Coding Style
 
 This was copy-pasted from [```ReactJS```'s contribution style guide](https://github.com/facebook/react/blob/master/CONTRIBUTING.md)
@@ -217,6 +267,8 @@ This was copy-pasted from [```ReactJS```'s contribution style guide](https://git
 6. 80 character line length
 8. "Attractive"
 9. Keep it simple, stupid
+
+[Back to top](#content)
 
 ## Acknowledgement
 
