@@ -12,6 +12,7 @@ A simple infinite scroll solution for AngularJS weighing < ```1 KB``` (minified)
 - [Important Notes](#important-notes)
   - [Why another Infinite Scroll solution?](#why-another-infinite-scroll-solution)
   - [Status](#status)
+  - [Versioning](#versioning)
 - [Getting Started](#getting-started)
   - [Installation](#installation)
   - [Usage](#usage)
@@ -24,10 +25,9 @@ A simple infinite scroll solution for AngularJS weighing < ```1 KB``` (minified)
 - [Contributing](#contributing)
   - [Building](#building)
   - [Coding Style](#coding-style)
+- [Changelogs](#changelogs)
 
 ## Important Notes
-
-Latest versions are beta releases and are subject to change; also not recommended for production (although I am using it on an enterprise project).
 
 [Back to top](#content)
 
@@ -43,6 +43,14 @@ Latest versions are beta releases and are subject to change; also not recommende
 One thing is that it's not better.
 
 [Back to top](#content)
+
+### Limitation
+
+- No tests yet. 
+- Does not yet support responsive thresholds.
+- Does not support horizontal scrolling. Callback will not be executed.
+- Does not support arrows, not just yet.
+- Aims to be simple as much as it can.
 
 ### Status
 
@@ -60,6 +68,17 @@ All tests are failing because I suck. Please send a PR, thanks.
 *Legend*: ```/```: almost -- ```x``` done
 
 [Back to top](#content)
+
+### Versioning
+
+This library follows [Semantic Versioning](http://semver.org/). All major versions will bump the ```MINOR``` in *SemVer* until ```v1.0``` like so:
+
+- ```x.1.0``` is a major version
+- ```x.1.2``` is not a major version
+- ```x.2.0``` is a major version
+- ```x.2.69``` is not a major version
+
+Latest versions are beta releases and are subject to change; also not recommended for production (although I am using it on an enterprise project).
 
 ## Getting Started
 
@@ -185,6 +204,10 @@ The example below illustrates that ```myCallback()``` will be executed when the 
 
 Head over to the <a href="http://srph.github.io/angular-infinite-scroll/">examples page</a> to help you get started!
 
+### Support
+
+For whatever purposes, please feel free to drop an issue :)
+
 [Back to top](#content)
 
 ## Contribution
@@ -269,6 +292,21 @@ This was copy-pasted from [```ReactJS```'s contribution style guide](https://git
 9. Keep it simple, stupid
 
 [Back to top](#content)
+
+## Changelogs
+
+#### v0.1.2
+
+- Horizontal scrolling triggers the callback. Now, only vertical scrolling will trigger the infinite scrolling.
+
+#### v0.1.1
+
+- Fix failing promises. Promise block now uses the ```final``` block instead of ```then``` so there are no unexpected behaviors when *promises* fail.
+
+#### v0.1.0
+
+- Released on Bower.
+- Basic implementation.
 
 ## Acknowledgement
 

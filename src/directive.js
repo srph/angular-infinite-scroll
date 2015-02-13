@@ -44,6 +44,10 @@
       $scrollingContainer.on('scroll', $handle); // Scroll event listener
       scope.$on('$destroy', $handleUnbind) // Scope listener
 
+      // Flag whether the vertical scroll position changed.
+      // Why? Horizontal scroll shouldn't trigger the damn thing.
+      var _last_scroll = 0;
+      
       /**
        * Binds the scroll event listener
        * which triggers the infinite scroll.
@@ -52,17 +56,20 @@
        * scrolling. ... `
        */
       function $handle(evt) {
+        var height = $scrollingContainer.innerHeight(); // Container height
+        var scroll = $scrollingContainer.scrollTop(); // The amount of scrolling
+        var bottom = $container.prop('scrollHeight'); // Container height + amount of scrolling
 
         // Halt the execution if the disabled flag is set and true
         // or if the execution is still running
         var disabled = scope.disabled;
-        if ( (!angular.isUndefined(disabled) && !!disabled ) || promise !== null ) {
+        if ( ( promise !== null && (!angular.isUndefined(disabled) && !!disabled) )
+          && _last_scroll == scroll) {
           return;
         }
 
-        var height = $scrollingContainer.innerHeight(); // Container height
-        var scroll = $scrollingContainer.scrollTop(); // The amount of scrolling
-        var bottom = $container.prop('scrollHeight'); // Container height + amount of scrolling
+        // Update the last vertical scroll position
+        _last_scroll = scroll;
 
         // scrollHeight - height = scroll offset
         if ( scroll + threshold >= bottom - height ) {
