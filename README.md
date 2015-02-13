@@ -61,7 +61,7 @@ All tests are failing because I suck. Please send a PR, thanks.
 - [/] Tests
 - [x] Automation
 - [x] Documentation
-- [ ] Examples
+- [x] Examples
 - [ ] Removal of jQuery as dependency
 - [ ] Support for responsive apps (threshold, lel)
 
