@@ -49,7 +49,7 @@ One thing is that it's not better.
 - No tests yet. 
 - Does not yet support responsive thresholds.
 - Does not support horizontal scrolling. Callback will not be executed.
-- Does not support arrows, not just yet.
+- Does not support arrows, touches. Not just yet.
 - Aims to be simple as much as it can.
 
 ### Status
@@ -62,6 +62,8 @@ All tests are failing because I suck. Please send a PR, thanks.
 - [x] Automation
 - [x] Documentation
 - [x] Examples
+- [ ] React to key presses
+- [ ] React to touches
 - [ ] Removal of jQuery as dependency
 - [ ] Support for responsive apps (threshold, lel)
 
