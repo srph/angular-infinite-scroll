@@ -308,11 +308,11 @@ This was copy-pasted from [```ReactJS```'s contribution style guide](https://git
 
 #### v0.1.2
 
-- Horizontal scrolling triggers the callback. Now, only vertical scrolling will trigger the infinite scrolling.
+- Fixed *horizontal scrolling* from triggering the callback. Now, only vertical scrolling will trigger the infinite scrolling.
 
 #### v0.1.1
 
-- Fix failing promises. Promise block now uses the ```final``` block instead of ```then``` so there are no unexpected behaviors when *promises* fail.
+- Fixed failing promises. Promise block now uses the ```final``` block instead of ```then``` so there are no unexpected behaviors when returned *promises* from asynchronous callbacks fail.
 
 #### v0.1.0
 
