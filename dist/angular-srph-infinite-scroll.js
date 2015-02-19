@@ -25,9 +25,8 @@
       link: linkFn
     };
 
-    function linkFn(scope, element, attributes) {
+    function linkFn(scope, element) {
       var _windowElm = angular.element($window);
-      var _docElm = angular.element($document);
       var _bodyElm = angular.element('html, body');
 
       var promise = null;
