@@ -62,7 +62,8 @@
         // Halt the execution if the disabled flag is set and true
         // or if the execution is still running
         var disabled = scope.disabled;
-        if ( ( promise !== null && (!angular.isUndefined(disabled) && !!disabled) )
+        if ( (!angular.isUndefined(disabled) && !!disabled)
+          || promise !== null
           || _last_scroll == scroll) {
           return;
         }

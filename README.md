@@ -306,6 +306,8 @@ This was copy-pasted from [```ReactJS```'s contribution style guide](https://git
 
 ## Changelogs
 
+- Fixed callback from being executed when ```disabled``` was defined and is true, and promise is null.
+
 #### v0.1.4
 
 - Fixed conditions on cancelling the callback from being called (technically fixes horizontal scrolling from triggering the callback).
