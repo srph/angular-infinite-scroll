@@ -16,12 +16,13 @@ A simple infinite scroll solution for AngularJS weighing < ```1 KB``` (minified)
 - [Getting Started](#getting-started)
   - [Installation](#installation)
   - [Usage](#usage)
-    - [srph-infinite-scroll](#srph-infinite-scroll-expression)
-    - [disabled](#disabled-boolean-default-false)
-    - [throttle](#throttle-number-default-350)
-    - [threshold](#threshold-number-default-200)
-    - [container](#container-boolean)
-  - [Examples](#examples)
+    - [Examples](#examples)
+- [API](#api)
+  - [srph-infinite-scroll](#srph-infinite-scroll-expression)
+  - [disabled](#disabled-boolean-default-false)
+  - [throttle](#throttle-number-default-350)
+  - [threshold](#threshold-number-default-200)
+  - [container](#container-boolean)
 - [Contributing](#contributing)
   - [Building](#building)
   - [Coding Style](#coding-style)
@@ -112,7 +113,7 @@ $ bower install angular-srph-infinite-scroll --save
 <script src="https://cdn.rawgit.com/srph/angular-infinite-scroll/master/dist/angular-srph-infinite-scroll.min.js"></script>
 ```
 
-**Include the script to your HTML file after jQuery and AngularJS** (must be in proper order).**
+**Include the script to your HTML file after jQuery and AngularJS (*must be in proper order*).**
 
 ```html
 <!-- other scripts -->
@@ -131,8 +132,6 @@ angular.module('myApp', [/** other dependencies */, 'srph.infinite-scroll']);
 
 ### Usage
 
-The API is fairly simple.
-
 Use the directive on a container element.
 
 ```html
@@ -146,11 +145,25 @@ Use the directive on a container element.
 </div>
 ```
 
-\* The (```{``` & ```}```) enclosures indicate that the parameter is optional.
+\* The ```{```/```}``` enclosures indicate that the parameter is optional.
+
+Head over to the [API](#api) to see accepted parameters, and how to use each.
 
 [Back to top](#content)
 
-#### ```srph-infinite-scroll``` (```expression```)
+#### Examples
+
+Head over to the <a href="http://srph.github.io/angular-infinite-scroll/">examples page</a> to help you get started!
+
+[Back to top](#content)
+
+## API
+
+The API is fairly simple.
+
+[Back to top](#content)
+
+##### ```srph-infinite-scroll``` (```expression```)
 
 Callback to be evaluated (expression to be evaluated) when the current scroll position reaches the *bottom*.
 
@@ -168,25 +181,25 @@ Failing to do so, unexpected behaviors may occur.
 
 [Back to top](#content)
 
-#### ```disabled``` (```boolean```, *default*: ```false```)
+##### ```disabled``` (```boolean```, *default*: ```false```)
 
 Disable callback from being executed.
 
 [Back to top](#content)
 
-#### ```throttle``` (```number```, *default*: ```350```)
+##### ```throttle``` (```number```, *default*: ```350```)
 
 Delays the execution of the callback
 
 [Back to top](#content)
 
-#### ```threshold``` (```number```, *default*: ```200```)
+##### ```threshold``` (```number```, *default*: ```200```)
 
 Scroll allowance for executing the callback when reaching the bottom. This allows you to get the callback executed even before reaching the bottom.
 
 [Back to top](#content)
 
-#### ```container``` (```boolean```)
+##### ```container``` (```boolean```)
 
 Use the container (element which the directive was applies to) for the infinite scrolling instead of the window. Set ```true``` to use the element which the directive is applied to; leave as blank to use the ```body``` / ```$window```.
 
@@ -201,10 +214,6 @@ The example below illustrates that ```myCallback()``` will be executed when the 
 ```
 
 [Back to top](#content)
-
-### Examples
-
-Head over to the <a href="http://srph.github.io/angular-infinite-scroll/">examples page</a> to help you get started!
 
 ### Support
 
@@ -303,11 +312,11 @@ This was copy-pasted from [```ReactJS```'s contribution style guide](https://git
 
 #### v0.1.2
 
-- Horizontal scrolling triggers the callback. Now, only vertical scrolling will trigger the infinite scrolling.
+- Fixed *horizontal scrolling* from triggering the callback. Now, only vertical scrolling will trigger the infinite scrolling.
 
 #### v0.1.1
 
-- Fix failing promises. Promise block now uses the ```final``` block instead of ```then``` so there are no unexpected behaviors when *promises* fail.
+- Fixed failing promises. Promise block now uses the ```final``` block instead of ```then``` so there are no unexpected behaviors when returned *promises* from asynchronous callbacks fail.
 
 #### v0.1.0
 
