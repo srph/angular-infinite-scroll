@@ -297,6 +297,10 @@ This was copy-pasted from [```ReactJS```'s contribution style guide](https://git
 
 ## Changelogs
 
+#### v0.1.3
+
+- Fixed a variable being undefined.
+
 #### v0.1.2
 
 - Horizontal scrolling triggers the callback. Now, only vertical scrolling will trigger the infinite scrolling.

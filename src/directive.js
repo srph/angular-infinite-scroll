@@ -41,12 +41,12 @@
       var isContainerBody = $container == _bodyElm;
       var $scrollingContainer = isContainerBody ?  _windowElm : element;
 
-      $scrollingContainer.on('scroll', $handle); // Scroll event listener
-      scope.$on('$destroy', $handleUnbind) // Scope listener
-
       // Flag whether the vertical scroll position changed.
       // Why? Horizontal scroll shouldn't trigger the damn thing.
       var _last_scroll = 0;
+
+      $scrollingContainer.on('scroll', $handle); // Scroll event listener
+      scope.$on('$destroy', $handleUnbind) // Scope listener
       
       /**
        * Binds the scroll event listener
