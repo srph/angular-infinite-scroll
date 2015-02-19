@@ -306,6 +306,10 @@ This was copy-pasted from [```ReactJS```'s contribution style guide](https://git
 
 ## Changelogs
 
+#### v0.1.4
+
+- Fixed conditions on cancelling the callback from being called (technically fixes horizontal scrolling from triggering the callback).
+
 #### v0.1.3
 
 - Fixed a variable being undefined.

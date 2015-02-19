@@ -63,7 +63,7 @@
         // or if the execution is still running
         var disabled = scope.disabled;
         if ( ( promise !== null && (!angular.isUndefined(disabled) && !!disabled) )
-          && _last_scroll == scroll) {
+          || _last_scroll == scroll) {
           return;
         }
 
