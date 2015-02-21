@@ -83,6 +83,8 @@ This library follows [Semantic Versioning](http://semver.org/). All major versio
 
 Latest versions are beta releases and are subject to change; also not recommended for production (although I am using it on an enterprise project).
 
+[Back to top](#content)
+
 ## Getting Started
 
 Getting started is very easy!
