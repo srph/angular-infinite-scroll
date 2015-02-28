@@ -308,6 +308,8 @@ This was copy-pasted from [```ReactJS```'s contribution style guide](https://git
 
 ## Changelogs
 
+#### v0.1.5
+
 - Fixed callback from being executed when ```disabled``` was defined and is true, and promise is null.
 
 #### v0.1.4
