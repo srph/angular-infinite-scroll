@@ -13,6 +13,7 @@ A simple infinite scroll solution for AngularJS weighing < ```1 KB``` (minified)
   - [Why another Infinite Scroll solution?](#why-another-infinite-scroll-solution)
   - [Status](#status)
   - [Versioning](#versioning)
+  - [Alternatives](#alternatives)
 - [Getting Started](#getting-started)
   - [Installation](#installation)
   - [Usage](#usage)
@@ -29,8 +30,6 @@ A simple infinite scroll solution for AngularJS weighing < ```1 KB``` (minified)
 - [Changelogs](#changelogs)
 
 ## Important Notes
-
-[Back to top](#content)
 
 ### Why another Infinite Scroll solution?
 
@@ -82,6 +81,12 @@ This library follows [Semantic Versioning](http://semver.org/). All major versio
 - ```x.2.69``` is not a major version
 
 Latest versions are beta releases and are subject to change; also not recommended for production (although I am using it on an enterprise project).
+
+### Alternatives
+
+- [ng-scroller (`jankuca/ng-scroller`)](https://github.com/jankuca/ng-scroller)
+- [ngInfiniteScroll (`sroze/ngInfiniteScroll`)](https://github.com/sroze/ngInfiniteScroll)
+- [lrInfiniteScroll (`lorenzofox3/lrInfiniteScroll`](https://github.com/lorenzofox3/lrInfiniteScroll)
 
 [Back to top](#content)
 
