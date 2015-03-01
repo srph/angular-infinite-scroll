@@ -1,6 +1,6 @@
 # angular-infinite-scroll
 
-[![Build Status](https://travis-ci.org/srph/angular-infinite-scroll.svg?branch=master)](https://travis-ci.org/srph/angular-infinite-scroll) [![Bower version](https://badge.fury.io/bo/angular-srph-infinite-scroll.svg)](http://badge.fury.io/bo/angular-srph-infinite-scroll) [![Author | Shields.io](http://img.shields.io/badge/author-%40srph-blue.svg?style=flat-square)](http://twitter.com/_srph) [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+[![Build Status](https://travis-ci.org/srph/angular-infinite-scroll.svg?branch=master)](https://travis-ci.org/srph/angular-infinite-scroll) [![Bower version](https://badge.fury.io/bo/angular-srph-infinite-scroll.svg)](http://badge.fury.io/bo/angular-srph-infinite-scroll) [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT) [![SemVer](http://img.shields.io/badge/semver-2.0.0-brightgreen.svg)](http://semver.org/spec/v2.0.0.html) [![Author | Shields.io](http://img.shields.io/badge/author-%40srph-blue.svg?style=flat-square)](http://twitter.com/_srph)
 
 A simple infinite scroll solution for AngularJS weighing < ```1 KB``` (minified).
 
@@ -9,11 +9,10 @@ A simple infinite scroll solution for AngularJS weighing < ```1 KB``` (minified)
 - [Getting Started](#getting-started)
   - [Installation](#installation)
   - [Usage](#usage)
-  - [API](#usage)
+  - [API](#api)
   - [Examples](#examples)
 - [Contributing](#contributing)
   - [Building](#building)
-  - [Versioning](#versioning)
 - [Alternatives](#alternatives)
 - [Changelogs](#changelogs)
 
@@ -79,7 +78,7 @@ Use the directive on a container element.
 </div>
 ```
 
-\* The ```{```/```}``` enclosures indicate that the parameter is optional.
+\* The `{ .. }` enclosures indicate that the parameter is optional.
 
 ### API
 
@@ -114,19 +113,6 @@ Pull-requests with test or without are both appreciated!
 ### Building
 
 Please check [`docs/building`](https://github.com/srph/angular-infinite-scroll/edit/master/README.md)
-
-[Back to top](#content)
-
-### Versioning
-
-This library follows [Semantic Versioning](http://semver.org/). All major versions will bump the ```MINOR``` in *SemVer* until ```v1.0``` like so:
-
-- ```x.1.0``` is a major version
-- ```x.1.2``` is not a major version
-- ```x.2.0``` is a major version
-- ```x.2.69``` is not a major version
-
-Latest versions are beta releases and are subject to change; also not recommended for production (although I am using it on an enterprise project).
 
 [Back to top](#content)
 
