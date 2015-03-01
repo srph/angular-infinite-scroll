@@ -11,7 +11,8 @@ A simple infinite scroll solution for AngularJS weighing < ```1 KB``` (minified)
   - [Usage](#usage)
   - [API](#api)
   - [Examples](#examples)
-- [Contributing](#contributing)
+- [Support](#support)
+- [Contribution](#contributing)
   - [Building](#building)
 - [Alternatives](#alternatives)
 - [Changelogs](#changelogs)
@@ -24,8 +25,6 @@ Getting started is very easy!
 
 - AngularJS ```>=v1.2.0``` (Should work with)
 - jQuery (at least) ```>=v.1.7``` (Planned in the future to be removed)
-
-[Back to top](#content)
 
 ### Installation
 
@@ -61,8 +60,6 @@ $ bower install angular-srph-infinite-scroll --save
 angular.module('myApp', [/** other dependencies */, 'srph.infinite-scroll']);
 ```
 
-[Back to top](#content)
-
 ### Usage
 
 Use the directive on a container element.
@@ -88,14 +85,6 @@ Head over to the [API Documentation](https://github.com/srph/angular-infinite-sc
 
 Head over to the [examples page](http://srph.github.io/angular-infinite-scroll/) to help you get started!
 
-[Back to top](#content)
-
-## Support
-
-For whatever purposes, please feel free to drop an issue :)
-
-[Back to top](#content)
-
 ## Contribution
 
 All contributions are appreciated. Please simply file an issue first for any inquiry, proposal, or question to avoid closed pull-requests; useless work. Thanks!
@@ -108,13 +97,9 @@ All contributions are appreciated. Please simply file an issue first for any inq
 
 Pull-requests with test or without are both appreciated!
 
-[Back to top](#content)
-
 ### Building
 
 Please check [`docs/building`](https://github.com/srph/angular-infinite-scroll/edit/master/README.md)
-
-[Back to top](#content)
 
 ## Alternatives
 
