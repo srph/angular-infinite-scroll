@@ -9,11 +9,6 @@ A simple infinite scroll solution for AngularJS weighing < ```1 KB``` (minified)
 
 ## Content
 
-- [Important Notes](#important-notes)
-  - [Why another Infinite Scroll solution?](#why-another-infinite-scroll-solution)
-  - [Status](#status)
-  - [Versioning](#versioning)
-  - [Alternatives](#alternatives)
 - [Getting Started](#getting-started)
   - [Installation](#installation)
   - [Usage](#usage)
@@ -24,71 +19,15 @@ A simple infinite scroll solution for AngularJS weighing < ```1 KB``` (minified)
   - [```throttle```](#throttle-number-default-350)
   - [```threshold```](#threshold-number-default-200)
   - [```container```](#container-boolean)
+- [Important Notes](#important-notes)
+  - [Why another Infinite Scroll solution?](#why-another-infinite-scroll-solution)
+  - [Status](#status)
+  - [Versioning](#versioning)
+  - [Alternatives](#alternatives)
 - [Contributing](#contributing)
   - [Building](#building)
   - [Coding Style](#coding-style)
 - [Changelogs](#changelogs)
-
-## Important Notes
-
-### Why another Infinite Scroll solution?
-
-- [sroze/ngInfiniteScroll](https://github.com/sroze/ngInfiniteScroll) is an okay solution, however it seems to not support infinite scrolling for containers, and has oudated documentation.
-- The author of the mentioned library is difficult to contact (no twitter, mail seems down, and busy according to his Github activity).
-- Some part of the internal code just doesn't make sense to me.
-- It Just Works™.
-- Why not?
-- I don't know at all.
-
-One thing is that it's not better.
-
-[Back to top](#content)
-
-### Limitation
-
-- No tests yet. 
-- Does not yet support responsive thresholds.
-- Does not support horizontal scrolling. Callback will not be executed.
-- Does not support arrows, touches. Not just yet.
-- Aims to be simple as much as it can.
-
-### Status
-
-All tests are failing because I suck. Please send a PR, thanks.
-
-**Todo**
-
-- [/] Tests
-- [x] Automation
-- [x] Documentation
-- [x] Examples
-- [ ] React to key presses
-- [ ] React to touches
-- [ ] Removal of jQuery as dependency
-- [ ] Support for responsive apps (threshold, lel)
-
-*Legend*: ```/```: almost -- ```x``` done
-
-[Back to top](#content)
-
-### Versioning
-
-This library follows [Semantic Versioning](http://semver.org/). All major versions will bump the ```MINOR``` in *SemVer* until ```v1.0``` like so:
-
-- ```x.1.0``` is a major version
-- ```x.1.2``` is not a major version
-- ```x.2.0``` is a major version
-- ```x.2.69``` is not a major version
-
-Latest versions are beta releases and are subject to change; also not recommended for production (although I am using it on an enterprise project).
-
-### Alternatives
-
-- [ng-scroller (`jankuca/ng-scroller`)](https://github.com/jankuca/ng-scroller)
-- [ngInfiniteScroll (`sroze/ngInfiniteScroll`)](https://github.com/sroze/ngInfiniteScroll)
-- [lrInfiniteScroll (`lorenzofox3/lrInfiniteScroll`](https://github.com/lorenzofox3/lrInfiniteScroll)
-
-[Back to top](#content)
 
 ## Getting Started
 
@@ -310,6 +249,68 @@ This was copy-pasted from [```ReactJS```'s contribution style guide](https://git
 9. Keep it simple, stupid
 
 [Back to top](#content)
+
+## Important Notes
+
+### Why another Infinite Scroll solution?
+
+- [sroze/ngInfiniteScroll](https://github.com/sroze/ngInfiniteScroll) is an okay solution, however it seems to not support infinite scrolling for containers, and has oudated documentation.
+- The author of the mentioned library is difficult to contact (no twitter, mail seems down, and busy according to his Github activity).
+- Some part of the internal code just doesn't make sense to me.
+- It Just Works™.
+- Why not?
+- I don't know at all.
+
+One thing is that it's not better.
+
+[Back to top](#content)
+
+### Limitation
+
+- No tests yet. 
+- Does not yet support responsive thresholds.
+- Does not support horizontal scrolling. Callback will not be executed.
+- Does not support arrows, touches. Not just yet.
+- Aims to be simple as much as it can.
+
+### Status
+
+All tests are failing because I suck. Please send a PR, thanks.
+
+**Todo**
+
+- [/] Tests
+- [x] Automation
+- [x] Documentation
+- [x] Examples
+- [ ] React to key presses
+- [ ] React to touches
+- [ ] Removal of jQuery as dependency
+- [ ] Support for responsive apps (threshold, lel)
+
+*Legend*: ```/```: almost -- ```x``` done
+
+[Back to top](#content)
+
+### Versioning
+
+This library follows [Semantic Versioning](http://semver.org/). All major versions will bump the ```MINOR``` in *SemVer* until ```v1.0``` like so:
+
+- ```x.1.0``` is a major version
+- ```x.1.2``` is not a major version
+- ```x.2.0``` is a major version
+- ```x.2.69``` is not a major version
+
+Latest versions are beta releases and are subject to change; also not recommended for production (although I am using it on an enterprise project).
+
+### Alternatives
+
+- [ng-scroller (`jankuca/ng-scroller`)](https://github.com/jankuca/ng-scroller)
+- [ngInfiniteScroll (`sroze/ngInfiniteScroll`)](https://github.com/sroze/ngInfiniteScroll)
+- [lrInfiniteScroll (`lorenzofox3/lrInfiniteScroll`](https://github.com/lorenzofox3/lrInfiniteScroll)
+
+[Back to top](#content)
+
 
 ## Changelogs
 
